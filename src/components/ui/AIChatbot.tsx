@@ -25,11 +25,18 @@ interface Message {
   isFallback?: boolean;
 }
 
-const STARTER_PROMPTS = [
+const STARTER_ROW_1 = [
   '🚀 Tell me about Samsul\'s key projects',
   '⚡ What are his top skills & AI tools?',
-  '💼 What is Samsul\'s experience at AppifyDevs?',
+  '💼 Samsul\'s experience at AppifyDevs',
+  '🛡️ Tell me about TechnovaMartBD & SirajTech',
+];
+
+const STARTER_ROW_2 = [
   '📅 How can I book a call with Samsul?',
+  '🤖 Tell me about Samsul\'s AI agent workflows',
+  '🎓 What is Samsul\'s CSE degree & CGPA?',
+  '🏆 What certifications does Samsul have?',
 ];
 
 export function AIChatbot() {
@@ -383,23 +390,43 @@ export function AIChatbot() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Quick Starter Pills (shown when history is short) */}
+            {/* Quick Starter Pills (2 horizontal animated marquee rows - forward & reverse) */}
             {messages.length <= 2 && !isLoading && (
-              <div className="px-4 py-2 border-t border-slate-800 bg-slate-900/60">
-                <p className="text-[11px] text-slate-400 mb-2 flex items-center gap-1">
+              <div className="py-2.5 border-t border-slate-800 bg-slate-900/80 overflow-hidden select-none">
+                <p className="px-4 text-[11px] text-slate-400 mb-2 flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-cyan-400" /> Suggested questions:
                 </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {STARTER_PROMPTS.map((prompt, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSend(prompt)}
-                      className="text-left text-[11px] bg-slate-800/80 hover:bg-cyan-950 hover:border-cyan-500/50 text-slate-300 hover:text-cyan-200 border border-slate-700/60 px-2.5 py-1 rounded-full transition-all duration-200 flex items-center gap-1"
-                    >
-                      {prompt}
-                      <ChevronRight className="w-3 h-3 text-slate-400" />
-                    </button>
-                  ))}
+
+                {/* Row 1: Leftward smooth continuous marquee */}
+                <div className="overflow-hidden whitespace-nowrap mb-1.5 flex py-0.5">
+                  <div className="animate-marquee-left flex gap-2 pr-2">
+                    {[...STARTER_ROW_1, ...STARTER_ROW_1].map((prompt, idx) => (
+                      <button
+                        key={`row1-${idx}`}
+                        onClick={() => handleSend(prompt)}
+                        className="inline-flex items-center gap-1.5 text-[11px] bg-slate-800/90 hover:bg-cyan-950 hover:border-cyan-400/60 text-slate-300 hover:text-cyan-200 border border-slate-700/70 px-3 py-1 rounded-full transition-all duration-200 shadow-sm shrink-0 cursor-pointer"
+                      >
+                        <span>{prompt}</span>
+                        <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Row 2: Rightward (reverse) smooth continuous marquee */}
+                <div className="overflow-hidden whitespace-nowrap flex py-0.5">
+                  <div className="animate-marquee-right flex gap-2 pr-2">
+                    {[...STARTER_ROW_2, ...STARTER_ROW_2].map((prompt, idx) => (
+                      <button
+                        key={`row2-${idx}`}
+                        onClick={() => handleSend(prompt)}
+                        className="inline-flex items-center gap-1.5 text-[11px] bg-slate-800/90 hover:bg-cyan-950 hover:border-cyan-400/60 text-slate-300 hover:text-cyan-200 border border-slate-700/70 px-3 py-1 rounded-full transition-all duration-200 shadow-sm shrink-0 cursor-pointer"
+                      >
+                        <span>{prompt}</span>
+                        <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
