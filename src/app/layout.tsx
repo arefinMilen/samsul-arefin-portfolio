@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { BackgroundCanvas } from '@/components/ui/BackgroundCanvas';
 import { ProjectDetailModal } from '@/components/sections/ProjectDetailModal';
+import { AIChatbot } from '@/components/ui/AIChatbot';
 import { JsonLd } from '@/components/common/JsonLd';
 import { personalDetails } from '@/data/portfolioData';
 
@@ -94,9 +95,11 @@ export default function RootLayout({
           <main className="relative z-10">{children}</main>
           <Footer />
           <ProjectDetailModal />
+          <AIChatbot />
         </Providers>
       </body>
     </html>
   );
 }
+
 
