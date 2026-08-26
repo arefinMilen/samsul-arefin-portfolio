@@ -25,15 +25,21 @@ const sendEmailApi = async (data: ContactFormValues) => {
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_uddgt3a';
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'JnDfEjQ-KEuyaIIXM';
 
-  emailjs.init(publicKey);
-
-  const response = await emailjs.send(serviceId, templateId, {
-    from_name: data.name,
-    from_email: data.email,
-    subject: data.subject,
-    message: data.message,
-    to_name: personalDetails.name,
-  });
+  const response = await emailjs.send(
+    serviceId,
+    templateId,
+    {
+      from_name: data.name,
+      from_email: data.email,
+      reply_to: data.email,
+      subject: data.subject,
+      message: data.message,
+      to_name: personalDetails.name,
+    },
+    {
+      publicKey: publicKey,
+    }
+  );
 
   return response;
 };
@@ -57,7 +63,9 @@ export const ContactSection: React.FC = () => {
       reset();
     },
     onError: (error: any) => {
-      toast.error(t.contact.errorToast + ' (' + (error?.text || error?.message || 'Error') + ')');
+      console.error('EmailJS Send Error:', error);
+      const errMsg = error?.text || error?.message || (typeof error === 'string' ? error : 'Failed to send message');
+      toast.error(`${t.contact.errorToast} (${errMsg})`);
     },
   });
 
