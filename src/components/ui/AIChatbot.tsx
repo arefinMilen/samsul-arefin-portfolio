@@ -225,20 +225,17 @@ export function AIChatbot() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
-        className="relative group p-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white shadow-xl shadow-cyan-900/40 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 flex items-center justify-center border border-cyan-300/30"
+        className="relative group p-3.5 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white shadow-xl shadow-cyan-900/40 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 flex items-center justify-center border border-cyan-300/30"
         aria-label="Toggle AI Assistant Chatbot"
       >
         {/* Glow backdrop pulse */}
         <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500 blur opacity-40 group-hover:opacity-75 transition duration-500 animate-pulse" />
         
-        <div className="relative flex items-center gap-2">
+        <div className="relative flex items-center justify-center">
           {isOpen ? (
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-white transition-transform duration-200" />
           ) : (
-            <>
-              <Bot className="w-6 h-6 text-white animate-bounce-slow" />
-              <Sparkles className="w-4 h-4 text-cyan-200" />
-            </>
+            <Bot className="w-6 h-6 text-white transition-transform duration-200" />
           )}
         </div>
 
@@ -253,7 +250,7 @@ export function AIChatbot() {
         {/* Hover Tooltip when closed */}
         {!isOpen && (
           <div className="absolute right-full mr-3 hidden group-hover:flex items-center pointer-events-none">
-            <div className="bg-slate-900/90 text-slate-100 text-xs px-3 py-1.5 rounded-lg border border-cyan-500/30 shadow-lg whitespace-nowrap backdrop-blur-md">
+            <div className="bg-slate-900/90 text-slate-100 text-xs px-3 py-1.5 rounded-lg border border-cyan-500/30 shadow-lg whitespace-nowrap backdrop-blur-md font-medium">
               Ask Samsul&apos;s AI Assistant ✨
             </div>
           </div>
@@ -280,16 +277,13 @@ export function AIChatbot() {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-md border border-cyan-300/40">
-                    <Bot className="w-5 h-5" />
+                    <Bot className="w-5 h-5 text-cyan-100" />
                   </div>
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-slate-900" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-white flex items-center gap-1.5">
+                  <h3 className="text-sm font-semibold text-white">
                     Arefin AI Assistant
-                    <span className="bg-cyan-500/20 text-cyan-300 text-[10px] px-1.5 py-0.5 rounded font-mono border border-cyan-500/30">
-                      Gemini
-                    </span>
                   </h3>
                   <p className="text-[11px] text-slate-400 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -309,10 +303,10 @@ export function AIChatbot() {
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  title="Minimize Chat"
+                  title="Close Chat"
                   className="p-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-700/50 rounded-lg transition-colors"
                 >
-                  <Minimize2 className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
             </div>
