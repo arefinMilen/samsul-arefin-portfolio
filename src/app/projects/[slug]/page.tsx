@@ -215,7 +215,6 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
                   : 'bg-gradient-to-r from-brand-cyan to-cyan-400 text-dark-bg hover:bg-cyan-300 shadow-cyan-500/25'
               }`}
             >
-              <Globe className="w-4 h-4" />
               <span>{project.isProduction ? 'Visit Live Production Application' : 'Visit Live Website'}</span>
               <ExternalLink className="w-4 h-4" />
             </a>

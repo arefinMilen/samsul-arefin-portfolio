@@ -73,7 +73,7 @@ export const en = {
     title: 'Featured Projects & Applications',
     subtitle: 'Real-world full-stack web products, AI integrations, and high-performance software engineered with precision.',
     all: 'All',
-    productionFilter: '🚀 Live Production',
+    productionFilter: 'Live Production',
     fullstack: 'Full-Stack',
     frontend: 'Frontend UI',
     app: 'Apps',

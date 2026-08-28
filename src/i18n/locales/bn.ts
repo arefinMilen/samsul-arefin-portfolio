@@ -75,7 +75,7 @@ export const bn: TranslationKey = {
     title: 'সেরা প্রজেক্টসমূহ',
     subtitle: 'বাস্তবমুখী ফুল-স্ট্যাক ওয়েব প্রজেক্ট, এআই ইন্টিগ্রেশন এবং উচ্চ কর্মক্ষমতাসম্পন্ন সফটওয়্যার।',
     all: 'সব',
-    productionFilter: '🚀 লাইভ প্রডাকশন',
+    productionFilter: 'লাইভ প্রডাকশন',
     fullstack: 'ফুল-স্ট্যাক',
     frontend: 'ফ্রন্টএন্ড ইউআই',
     app: 'অ্যাপস',

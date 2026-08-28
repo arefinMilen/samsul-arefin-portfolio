@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '@/store/store';
 import { setActiveProjectCategory, setSearchQuery } from '@/store/uiSlice';
 import { projectsData } from '@/data/portfolioData';
 import { useTranslation } from '@/i18n/useTranslation';
-import { ExternalLink, Search, ArrowRight, Lock, Globe } from 'lucide-react';
+import { ExternalLink, Search, ArrowRight, Lock, Globe, Github } from 'lucide-react';
 
 const getCleanDomain = (url?: string) => {
   if (!url) return '';
@@ -215,7 +215,6 @@ export const ProjectsSection: React.FC = () => {
                         }`}
                         title={`Visit ${domainName}`}
                       >
-                        <Globe className="w-3.5 h-3.5" />
                         <span>{project.isProduction ? `Visit ${domainName}` : 'Live Demo'}</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
@@ -239,7 +238,7 @@ export const ProjectsSection: React.FC = () => {
                           className="p-1.5 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/20 text-slate-700 dark:text-slate-300 transition-all border border-black/10 dark:border-white/10"
                           title={t.projects.viewCode}
                         >
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <Github className="w-3.5 h-3.5" />
                         </a>
                       )
                     )}
