@@ -58,6 +58,7 @@ import {
   CheckCircle2,
   HelpCircle,
 } from 'lucide-react';
+import StackIcon from 'tech-stack-icons';
 
 interface SkillIconProps {
   name: string;
@@ -75,23 +76,30 @@ export const SkillIcon: React.FC<SkillIconProps> = ({ name, className = 'w-4 h-4
     case 'sianthropic':
     case 'claude':
     case 'claude agent':
-      return <SiAnthropic className={`${className} text-amber-500`} size={size} />;
+      return <StackIcon name="claude" className={className} />;
     case 'sparkles':
     case 'antigravity':
     case 'cursor':
-      return <Sparkles className={`${className} text-cyan-400`} size={size} />;
+    case 'antigravity & cursor ai':
+    case 'cursor ai':
+      return <StackIcon name="antigravity" className={className} />;
     case 'cpu':
     case 'mcp':
+    case 'mcp tool calling':
       return <Cpu className={`${className} text-purple-400`} size={size} />;
     case 'workflow':
     case 'multi-llm':
+    case 'multi-llm orchestration':
       return <Workflow className={`${className} text-emerald-400`} size={size} />;
     case 'terminal':
     case 'prompt':
+    case 'context & prompt eng.':
       return <Terminal className={`${className} text-pink-400`} size={size} />;
     case 'zap':
+    case 'agentic workflows':
       return <Zap className={`${className} text-yellow-400`} size={size} />;
     case 'code2':
+    case 'function calling':
       return <Code2 className={`${className} text-blue-400`} size={size} />;
 
     // Languages

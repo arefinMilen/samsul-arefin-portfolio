@@ -96,7 +96,7 @@ export const SkillsSection: React.FC = () => {
                           key={skill.name}
                           className="px-4 py-2.5 rounded-xl bg-black/5 dark:bg-white/5 border border-brand-cyan/40 text-slate-900 dark:text-slate-100 text-xs sm:text-sm font-semibold flex items-center gap-2.5 shadow-md hover:border-brand-cyan hover:scale-[1.02] transition-all"
                         >
-                          <SkillIcon name={skill.icon} className="w-4 sm:w-5 h-4 sm:h-5 shrink-0 text-brand-cyan" />
+                          <SkillIcon name={skill.name} className="w-4 sm:w-5 h-4 sm:h-5 shrink-0" />
                           <span>{skill.name}</span>
                         </div>
                       ))}
