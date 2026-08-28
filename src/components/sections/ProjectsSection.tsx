@@ -10,6 +10,19 @@ import { projectsData } from '@/data/portfolioData';
 import { useTranslation } from '@/i18n/useTranslation';
 import { ExternalLink, Search, ArrowRight, Lock, Globe } from 'lucide-react';
 
+const getCleanDomain = (url?: string) => {
+  if (!url) return '';
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '');
+    if (host.includes('npmjs.com')) {
+      return 'npmjs.com';
+    }
+    return host;
+  } catch {
+    return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+  }
+};
+
 export const ProjectsSection: React.FC = () => {
   const dispatch = useAppDispatch();
   const { activeProjectCategory, searchQuery } = useAppSelector((state) => state.ui);
@@ -107,6 +120,7 @@ export const ProjectsSection: React.FC = () => {
             const title = itemTrans?.title || project.title;
             const description = itemTrans?.description || project.description;
             const categoryLabel = itemTrans?.categoryLabel || project.categoryLabel;
+            const domainName = getCleanDomain(project.liveUrl);
 
             return (
               <motion.div
@@ -123,16 +137,18 @@ export const ProjectsSection: React.FC = () => {
               >
                 <div>
                   {/* Image Container - Clickable Link */}
-                  <Link href={`/projects/${project.slug}`} className="relative block w-full h-52 overflow-hidden bg-black/10 dark:bg-slate-900">
-                    <Image
-                      src={project.image}
-                      alt={title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 dark:from-dark-bg via-transparent to-transparent opacity-80" />
+                  <div className="relative block w-full h-52 overflow-hidden bg-black/10 dark:bg-slate-900">
+                    <Link href={`/projects/${project.slug}`}>
+                      <Image
+                        src={project.image}
+                        alt={title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 dark:from-dark-bg via-transparent to-transparent opacity-80" />
+                    </Link>
 
-                    {/* Production Indicator or Category Badge */}
+                    {/* Left Badge: Live Production / Category */}
                     <div className="absolute top-4 left-4 flex flex-col gap-1.5 items-start z-10">
                       {project.isProduction && (
                         <span className="px-3 py-1 rounded-full bg-slate-950/90 dark:bg-dark-bg/90 backdrop-blur-md border border-emerald-500/50 text-emerald-400 font-mono text-[11px] font-bold flex items-center gap-1.5 shadow-lg shadow-emerald-500/20">
@@ -147,7 +163,7 @@ export const ProjectsSection: React.FC = () => {
                         {categoryLabel}
                       </span>
                     </div>
-                  </Link>
+                  </div>
 
                   {/* Content */}
                   <div className="p-6">
@@ -175,7 +191,8 @@ export const ProjectsSection: React.FC = () => {
                 </div>
 
                 {/* Card Footer Actions */}
-                <div className="px-6 pb-6 pt-3 flex items-center justify-between border-t border-black/5 dark:border-white/5 bg-black/[0.02] dark:bg-white/[0.02]">
+                <div className="px-6 pb-6 pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-black/5 dark:border-white/5 bg-black/[0.02] dark:bg-white/[0.02]">
+                  {/* Case Study Secondary Link */}
                   <Link
                     href={`/projects/${project.slug}`}
                     className="text-xs font-semibold text-brand-cyan hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5 transition-colors"
@@ -184,23 +201,23 @@ export const ProjectsSection: React.FC = () => {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
 
+                  {/* Primary Glowing Live CTA Button */}
                   <div className="flex items-center gap-2">
-                    {/* Live URL Button */}
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`px-3 py-1.5 rounded-xl font-mono text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                        className={`px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold flex items-center gap-1.5 transition-all hover:scale-105 ${
                           project.isProduction
-                            ? 'bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-dark-bg border border-emerald-500/40 shadow-md shadow-emerald-500/10'
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-dark-bg shadow-md shadow-emerald-500/25 hover:from-emerald-400 hover:to-teal-300'
                             : 'bg-black/5 dark:bg-white/5 hover:bg-brand-cyan hover:text-dark-bg text-slate-700 dark:text-slate-300 border border-black/10 dark:border-white/10'
                         }`}
-                        title={t.projects.visitLiveApp || t.projects.liveDemo}
+                        title={`Visit ${domainName}`}
                       >
                         <Globe className="w-3.5 h-3.5" />
-                        <span>Live</span>
-                        <ExternalLink className="w-3 h-3 ml-0.5" />
+                        <span>{project.isProduction ? `Visit ${domainName}` : 'Live Demo'}</span>
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     )}
 
