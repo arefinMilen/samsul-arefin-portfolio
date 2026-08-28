@@ -12,6 +12,8 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
+  isProduction?: boolean;
+  isPrivateRepo?: boolean;
   metrics?: { label: string; value: string }[];
   keyFeatures?: string[];
   challengesSolved?: string;
