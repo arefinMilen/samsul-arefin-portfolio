@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { projectsData } from '@/data/portfolioData';
-import { ExternalLink, Github, ArrowLeft, CheckCircle2, Layers, Sparkles, Cpu, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Github, ArrowLeft, CheckCircle2, Layers, Sparkles, Cpu, ShieldCheck, Lock, Globe } from 'lucide-react';
 
 interface ProjectPageProps {
   params: {
@@ -84,6 +84,15 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
         {/* Header Metadata */}
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-3">
+            {project.isProduction && (
+              <span className="px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-500/20">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Live in Production</span>
+              </span>
+            )}
             <span className="px-3.5 py-1 rounded-full bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan font-mono text-xs">
               {project.categoryLabel}
             </span>
@@ -200,22 +209,38 @@ export default function ProjectCaseStudyPage({ params }: ProjectPageProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-cyan to-cyan-400 text-dark-bg font-bold text-sm flex items-center gap-2 hover:bg-cyan-300 transition-all shadow-xl shadow-cyan-500/25"
+              className={`px-8 py-3.5 rounded-full font-extrabold text-sm flex items-center gap-2 transition-all shadow-xl ${
+                project.isProduction
+                  ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-dark-bg hover:from-emerald-400 hover:to-teal-300 shadow-emerald-500/25 ring-2 ring-emerald-400/50'
+                  : 'bg-gradient-to-r from-brand-cyan to-cyan-400 text-dark-bg hover:bg-cyan-300 shadow-cyan-500/25'
+              }`}
             >
+              <Globe className="w-4 h-4" />
+              <span>{project.isProduction ? 'Visit Live Production Application' : 'Visit Live Website'}</span>
               <ExternalLink className="w-4 h-4" />
-              <span>Visit Live Website</span>
             </a>
           )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-full glass-card hover:bg-white/10 text-white font-semibold text-sm flex items-center gap-2 border border-white/10"
+
+          {project.isPrivateRepo ? (
+            <div
+              className="px-6 py-3.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-semibold text-xs flex items-center gap-2 cursor-help"
+              title="Source code for this production application is maintained in a private commercial repository."
             >
-              <Github className="w-4 h-4" />
-              <span>View Source Code</span>
-            </a>
+              <Lock className="w-4 h-4 text-amber-400" />
+              <span>Commercial Production Codebase (Private Repository)</span>
+            </div>
+          ) : (
+            project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-full glass-card hover:bg-white/10 text-white font-semibold text-sm flex items-center gap-2 border border-white/10"
+              >
+                <Github className="w-4 h-4" />
+                <span>View Source Code</span>
+              </a>
+            )
           )}
         </div>
 
