@@ -2,6 +2,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { GithubStatsSection } from '@/components/sections/GithubStatsSection';
+import { LeetCodeStatsSection } from '@/components/sections/LeetCodeStatsSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { LeadershipSection } from '@/components/sections/LeadershipSection';
@@ -14,6 +15,7 @@ export default function Home() {
       <ServicesSection />
       <ProjectsSection />
       <GithubStatsSection />
+      <LeetCodeStatsSection />
       <SkillsSection />
       <ExperienceSection />
       <LeadershipSection />
