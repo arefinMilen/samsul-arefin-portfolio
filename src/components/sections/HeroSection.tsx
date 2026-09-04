@@ -178,11 +178,8 @@ export const HeroSection: React.FC = () => {
             className="lg:col-span-5 flex flex-col items-center justify-center"
           >
             <div className="relative w-full max-w-sm">
-              {/* Outer glowing halo */}
-              <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-brand-cyan to-brand-violet opacity-50 blur-xl animate-pulse" />
-              
               {/* Card Container */}
-              <div className="relative glass-panel rounded-3xl p-5 sm:p-6 border border-black/15 dark:border-white/15 shadow-2xl flex flex-col items-center text-center">
+              <div className="relative glass-panel rounded-3xl p-5 sm:p-6 border border-black/10 dark:border-white/10 shadow-xl flex flex-col items-center text-center">
                 {/* Profile Image */}
                 <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border-2 border-brand-cyan/50 shadow-xl mb-4 sm:mb-5 group">
                   <Image

@@ -14,6 +14,42 @@ interface UIState {
   searchQuery: string;
 }
 
+export const getBDTimeTheme = (): Theme => {
+  if (typeof window === 'undefined') {
+    return 'dark';
+  }
+
+  try {
+    const savedTheme = localStorage.getItem('portfolio_theme') as Theme | null;
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      return savedTheme;
+    }
+  } catch {
+    // Ignore read errors
+  }
+
+  try {
+    const now = new Date();
+    const bdHourString = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Dhaka',
+      hour: 'numeric',
+      hour12: false,
+    }).format(now);
+    const bdHour = parseInt(bdHourString, 10);
+    if (!isNaN(bdHour) && bdHour >= 6 && bdHour < 18) {
+      return 'light';
+    }
+  } catch {
+    const now = new Date();
+    const utcHours = now.getUTCHours();
+    const bdHour = (utcHours + 6) % 24;
+    if (bdHour >= 6 && bdHour < 18) {
+      return 'light';
+    }
+  }
+  return 'dark';
+};
+
 const initialState: UIState = {
   language: 'en',
   theme: 'dark',

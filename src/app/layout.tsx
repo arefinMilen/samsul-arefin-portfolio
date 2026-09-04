@@ -83,9 +83,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <JsonLd />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('portfolio_theme');
+                  var theme = saved;
+                  if (!theme || (theme !== 'dark' && theme !== 'light')) {
+                    var now = new Date();
+                    var bdHour;
+                    try {
+                      var bdStr = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Dhaka', hour: 'numeric', hour12: false }).format(now);
+                      bdHour = parseInt(bdStr, 10);
+                    } catch (e) {
+                      bdHour = (now.getUTCHours() + 6) % 24;
+                    }
+                    theme = (bdHour >= 6 && bdHour < 18) ? 'light' : 'dark';
+                  }
+                  var root = document.documentElement;
+                  if (theme === 'dark') {
+                    root.classList.add('dark');
+                    root.classList.remove('light');
+                  } else {
+                    root.classList.add('light');
+                    root.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="bg-dark-bg text-slate-100 antialiased relative min-h-screen">
         <Providers>

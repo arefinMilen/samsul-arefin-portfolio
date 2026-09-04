@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/store';
-import { toggleTheme, setTheme, Theme } from '@/store/uiSlice';
+import { toggleTheme, setTheme, Theme, getBDTimeTheme } from '@/store/uiSlice';
 import { Sun, Moon } from 'lucide-react';
 
 interface ThemeToggleProps {
@@ -16,23 +16,31 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
 }) => {
   const dispatch = useAppDispatch();
   const theme = useAppSelector((state) => state.ui.theme);
-  const isDark = theme === 'dark';
+  const [mounted, setMounted] = React.useState(false);
 
   useEffect(() => {
+    setMounted(true);
     if (typeof window !== 'undefined') {
       try {
         const savedTheme = localStorage.getItem('portfolio_theme') as Theme | null;
-        if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light') && savedTheme !== theme) {
-          dispatch(setTheme(savedTheme));
+        if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
+          if (savedTheme !== theme) {
+            dispatch(setTheme(savedTheme));
+          }
         } else {
-          // Sync HTML class on mount
-          const root = document.documentElement;
-          if (theme === 'dark') {
-            root.classList.add('dark');
-            root.classList.remove('light');
+          const defaultTheme = getBDTimeTheme();
+          if (defaultTheme !== theme) {
+            dispatch(setTheme(defaultTheme));
           } else {
-            root.classList.add('light');
-            root.classList.remove('dark');
+            // Sync HTML class on mount
+            const root = document.documentElement;
+            if (theme === 'dark') {
+              root.classList.add('dark');
+              root.classList.remove('light');
+            } else {
+              root.classList.add('light');
+              root.classList.remove('dark');
+            }
           }
         }
       } catch {
@@ -40,6 +48,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       }
     }
   }, [dispatch, theme]);
+
+  const isDark = mounted ? theme === 'dark' : true;
 
   if (variant === 'mobile') {
     return (
