@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import {
-  Bot,
   X,
   Send,
   Sparkles,
@@ -242,7 +242,16 @@ export function AIChatbot() {
           {isOpen ? (
             <X className="w-6 h-6 text-white transition-transform duration-200" />
           ) : (
-            <Bot className="w-6 h-6 text-white transition-transform duration-200" />
+            <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white/90 shadow-md">
+              <Image
+                src={personalDetails.avatar}
+                alt="Arefin AI Avatar"
+                fill
+                sizes="32px"
+                className="object-cover"
+              />
+              <Sparkles className="w-3.5 h-3.5 text-cyan-300 absolute -bottom-1 -right-1 bg-slate-900 rounded-full p-0.5 border border-cyan-400 shadow-sm" />
+            </div>
           )}
         </div>
 
@@ -283,10 +292,16 @@ export function AIChatbot() {
             <div className="p-4 bg-slate-800/80 border-b border-slate-700/60 flex items-center justify-between backdrop-blur-md">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-md border border-cyan-300/40">
-                    <Bot className="w-5 h-5 text-cyan-100" />
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cyan-400/80 shadow-md ring-2 ring-cyan-500/20">
+                    <Image
+                      src={personalDetails.avatar}
+                      alt="Arefin AI Avatar"
+                      fill
+                      sizes="40px"
+                      className="object-cover"
+                    />
                   </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-slate-900" />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-900 shadow-sm z-10" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white">
@@ -336,8 +351,14 @@ export function AIChatbot() {
                 >
                   {/* AI Avatar */}
                   {msg.role === 'assistant' && (
-                    <div className="w-7 h-7 rounded-full bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5 shadow-sm">
-                      <Bot className="w-4 h-4" />
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-cyan-400/60 shrink-0 mt-0.5 shadow-sm ring-1 ring-cyan-500/30">
+                      <Image
+                        src={personalDetails.avatar}
+                        alt="Arefin AI"
+                        fill
+                        sizes="32px"
+                        className="object-cover"
+                      />
                     </div>
                   )}
 
@@ -376,8 +397,14 @@ export function AIChatbot() {
               {/* Typing Indicator */}
               {isLoading && (
                 <div className="flex gap-3 justify-start">
-                  <div className="w-7 h-7 rounded-full bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
-                    <Bot className="w-4 h-4" />
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-cyan-400/60 shrink-0 mt-0.5 shadow-sm ring-1 ring-cyan-500/30">
+                    <Image
+                      src={personalDetails.avatar}
+                      alt="Arefin AI"
+                      fill
+                      sizes="32px"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="p-3.5 bg-slate-800/90 border border-slate-700/70 rounded-2xl rounded-bl-none flex items-center gap-1.5">
                     <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
