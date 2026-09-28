@@ -178,7 +178,7 @@ export const ProjectsSection: React.FC = () => {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1.5 mb-6">
-                      {project.tags.slice(0, 4).map((tag) => (
+                      {project.tags.map((tag) => (
                         <span
                           key={tag}
                           className="px-2.5 py-0.5 rounded-md bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-[11px] font-mono text-slate-600 dark:text-slate-400"

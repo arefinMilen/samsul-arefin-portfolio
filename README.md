@@ -75,10 +75,11 @@ Portfolio/
 
 ## 🌟 Featured Projects Highlighted
 
-1. **TechnovaMartBD**: Full-Stack Gadget E-Commerce platform built with Next.js 14, Django REST Framework, PostgreSQL, and bKash/Nagad payment gateways with Dockerized Nginx deployment.
-2. **SirajTech**: Enterprise multi-role e-commerce portal with Next.js Edge Middleware for 3-role RBAC security, TanStack Query, and Zod validations.
-3. **Koolaai (LLM Chat App)**: Multi-model LLM chat platform unifying OpenAI ChatGPT and Google Gemini APIs with local MFS payment integration.
-4. **The WK IT Company Site**: Corporate tech agency platform showcasing booking systems, founder team spotlight, and Framer Motion animations.
+1. **Roni Agro Fiber**: Responsive B2B e-commerce platform showcasing Pineapple Leaf Fiber (PALF) products, processing pipeline, and export catalog across Desktop PC, Tablet, and Mobile devices (Next.js, React.js, TypeScript, Tailwind CSS, Redux, Node.js, MongoDB).
+2. **TechnovaMartBD**: Full-Stack Gadget E-Commerce platform built with Next.js 14, Django REST Framework, PostgreSQL, and bKash/Nagad payment gateways with Dockerized Nginx deployment.
+3. **SirajTech**: Enterprise multi-role e-commerce portal with Next.js Edge Middleware for 3-role RBAC security, TanStack Query, and Zod validations.
+4. **Koolaai (LLM Chat App)**: Multi-model LLM chat platform unifying OpenAI ChatGPT and Google Gemini APIs with local MFS payment integration.
+5. **The WK IT Company Site**: Corporate tech agency platform showcasing booking systems, founder team spotlight, and Framer Motion animations.
 
 ---
 

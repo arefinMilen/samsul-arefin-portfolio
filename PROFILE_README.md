@@ -94,6 +94,7 @@ const samsulArefin = {
 
 | Project | Tech Stack | Highlights | Links |
 | :--- | :--- | :--- | :---: |
+| 🌿 **Roni Agro Fiber** | `Next.js` `React` `TypeScript` `Tailwind CSS` `Redux` `Node.js` `MongoDB` | Responsive B2B e-commerce platform showcasing Pineapple Leaf Fiber (PALF) products, processing pipeline & export catalog. | [Live Demo](https://www.roniagrofiber.com/) • [GitHub](https://github.com/arefinMilen) |
 | 🛒 **TechnovaMartBD** | `Next.js 14` `Django REST` `PostgreSQL` `Docker` `bKash/Nagad` | Full-stack gadget e-commerce portal with automated JWT token refresh, Zustand state, MFS payments & Docker Nginx. | [Live Demo](https://technovamartbd.com/) • [GitHub](https://github.com/arefinMilen) |
 | 🤖 **Koolaai (LLM SaaS)** | `Next.js` `Node.js` `OpenAI` `Gemini` `MongoDB` `bKash` | Unified AI platform integrating ChatGPT & Gemini, custom image synthesis, multi-tier subscriptions & MFS payments. | [Live Demo](https://www.koolaai.tech) • [GitHub](https://github.com/arefinMilen) |
 | 🏢 **Kraftize** | `Next.js` `TypeScript` `Claude Agent` `PostgreSQL` `S3` | Enterprise hotel workforce management with 5-role RBAC, time-tracking analytics & automated PDF/Excel exports. | [Details](https://arefinportfolio.netlify.app/) |
