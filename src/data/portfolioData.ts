@@ -16,7 +16,7 @@ export const personalDetails = {
   avatar: '/Images/profile-formal.jpg',
   stats: [
     { label: 'Years Experience', value: '2+' },
-    { label: 'Projects Built', value: '18+' },
+    { label: 'Projects Built', value: '19+' },
     { label: 'Charity Drives Led', value: '10+' },
     { label: 'Code Quality', value: '100%' },
   ],
@@ -74,6 +74,42 @@ export const servicesData: ServiceItem[] = [
 ];
 
 export const projectsData: Project[] = [
+  {
+    id: 'roniagrofiber',
+    slug: 'roni-agro-fiber-b2b-ecommerce',
+    title: 'Roni Agro Fiber',
+    subtitle: 'Responsive B2B E-Commerce Platform for PALF Products',
+    description: 'Responsive B2B e-commerce platform showcasing Pineapple Leaf Fiber (PALF) products, processing pipeline, and export catalog across Desktop PC, Tablet, and Mobile devices.',
+    longDescription: 'Roni Agro Fiber is a specialized B2B e-commerce platform dedicated to showcasing sustainable Pineapple Leaf Fiber (PALF) products. Built with Next.js, React.js, TypeScript, Tailwind CSS, Redux.js, Node.js, REST APIs, and MongoDB, the platform delivers interactive product catalogs, processing pipelines, export specifications, and responsive layouts optimized across Desktop, Tablet, and Mobile devices.',
+    image: '/Images/roniagrofiber.jpg',
+    category: 'fullstack',
+    categoryLabel: 'B2B E-Commerce & AgroTech',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'Node.js', 'REST APIs', 'MongoDB'],
+    liveUrl: 'https://www.roniagrofiber.com/',
+    githubUrl: 'https://github.com/arefinMilen',
+    featured: true,
+    isProduction: true,
+    isPrivateRepo: true,
+    metrics: [
+      { label: 'Status', value: 'Live Production' },
+      { label: 'Industry', value: 'Eco AgroTech & Textile' },
+      { label: 'Tech Stack', value: 'Next.js + Node + Mongo' },
+      { label: 'State Engine', value: 'Redux Toolkit' },
+    ],
+    keyFeatures: [
+      'Responsive multi-device layout optimized across Desktop PC, Tablet, and Mobile screens',
+      'Pineapple Leaf Fiber (PALF) raw fiber, yarn, fabric, and non-woven material product showcase',
+      'Interactive PALF processing pipeline & eco-friendly industrial application catalog',
+      'Global export catalog with structured specification inquiry features',
+      'Redux persistent state management for dynamic product inquiry cart',
+    ],
+    challengesSolved: 'Engineered high-performance responsive viewports and seamless multi-device image rendering for international B2B buyers across desktop, tablet, and mobile platforms.',
+    techStackDetailed: [
+      { category: 'Frontend', items: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS', 'Redux.js'] },
+      { category: 'Backend & DB', items: ['Node.js', 'REST APIs', 'MongoDB'] },
+      { category: 'UX & Deployment', items: ['Responsive Design', 'B2B Catalog', 'SEO Optimization'] },
+    ],
+  },
   {
     id: 'technovamartbd',
     slug: 'technovamartbd-gadget-ecommerce',

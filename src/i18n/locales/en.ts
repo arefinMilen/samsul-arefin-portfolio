@@ -91,6 +91,21 @@ export const en = {
     techStack: 'Tech Stack & Architecture',
     metrics: 'Key Metrics & Highlights',
     items: {
+      roniagrofiber: {
+        title: 'Roni Agro Fiber',
+        subtitle: 'Responsive B2B E-Commerce Platform for PALF Products',
+        description: 'Responsive B2B e-commerce platform showcasing Pineapple Leaf Fiber (PALF) products, processing pipeline, and export catalog across Desktop PC, Tablet, and Mobile devices.',
+        longDescription: 'Roni Agro Fiber is a specialized B2B e-commerce platform dedicated to showcasing sustainable Pineapple Leaf Fiber (PALF) products. Built with Next.js, React.js, TypeScript, Tailwind CSS, Redux.js, Node.js, REST APIs, and MongoDB, the platform delivers interactive product catalogs, processing pipelines, export specifications, and responsive layouts optimized across Desktop, Tablet, and Mobile devices.',
+        categoryLabel: 'B2B E-Commerce & AgroTech',
+        challengesSolved: 'Engineered high-performance responsive viewports and seamless multi-device image rendering for international B2B buyers across desktop, tablet, and mobile platforms.',
+        keyFeatures: [
+          'Responsive multi-device layout optimized across Desktop PC, Tablet, and Mobile screens',
+          'Pineapple Leaf Fiber (PALF) raw fiber, yarn, fabric, and non-woven material product showcase',
+          'Interactive PALF processing pipeline & eco-friendly industrial application catalog',
+          'Global export catalog with structured specification inquiry features',
+          'Redux persistent state management for dynamic product inquiry cart',
+        ],
+      },
       technovamartbd: {
         title: 'TechnovaMartBD',
         subtitle: 'Scalable Full-Stack Gadget E-Commerce Platform',
